@@ -32,4 +32,29 @@ document.addEventListener("DOMContentLoaded", () => {
 const toggle = document.getElementById("theme-toggle");
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
+
+  // Toggle emoji icon
+  if (document.body.classList.contains("light-mode")) {
+    toggle.textContent = "☀️";
+  } else {
+    toggle.textContent = "🌙";
+  }
+});
+
+// Scroll animation for fade-in
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOnScroll = new IntersectionObserver(
+  function (entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+faders.forEach(fade => {
+  appearOnScroll.observe(fade);
 });
