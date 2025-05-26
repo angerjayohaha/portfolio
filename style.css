@@ -15,11 +15,11 @@ body {
 }
 
 #about p {
-  max-width: 600px;
+  max-width: 720px; /* wider so it fills more */
   margin: 1rem auto;
-  text-align: left;
+  padding: 0 15px;  /* small side padding */
+  text-align: justify; /* makes paragraph look neater */
   line-height: 1.6;
-  padding: 0 20px;
 }
 
 
@@ -126,20 +126,18 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 400px;
+  max-width: 720px; /* same width as paragraph */
   margin: 20px auto;
   padding: 0;
+  list-style: none;
   text-align: center;
 }
-
-
 
 .skill-list li {
   background-color: #333;
   color: white;
   padding: 12px 0;
   border-radius: 20px;
-  list-style: none;
 }
 
 
