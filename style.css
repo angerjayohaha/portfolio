@@ -14,6 +14,15 @@ body {
   line-height: 1.6;
 }
 
+#about p {
+  max-width: 700px;
+  margin: 1rem auto;
+  text-align: justify;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+
 .light-mode {
   background-color: #f9f9f9;
   color: #222;
@@ -219,9 +228,17 @@ body.light-mode .nav-links a:hover {
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     margin-top: 10px;
+  }
+
+  .nav-links li {
+    flex: 1 1 auto;
+    text-align: center;
+    min-width: 80px;
   }
 
   .intro {
@@ -247,8 +264,7 @@ body.light-mode .nav-links a:hover {
     padding: 40px 20px;
   }
 
-    #home {
+  #home {
     padding-top: 100px;
   }
-
 }

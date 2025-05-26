@@ -45,15 +45,17 @@ toggle.addEventListener("click", () => {
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOnScroll = new IntersectionObserver(
-  function (entries, observer) {
+  (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
+        observer.unobserve(entry.target);  // stop observing after first show
       }
     });
   },
   { threshold: 0.1 }
 );
+
 
 faders.forEach(fade => {
   appearOnScroll.observe(fade);
