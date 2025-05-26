@@ -1,58 +1,115 @@
-:root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-}
-
-body.dark {
-  --bg-color: #121212;
-  --text-color: #ffffff;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: white;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
 }
 
+.light-mode {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* NAVIGATION */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--bg-color);
+  padding: 20px 10%;
+  background-color: #1f1f1f;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.nav-links {
-  list-style: none;
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
   display: flex;
-  gap: 1rem;
+  list-style: none;
+  gap: 20px;
 }
 
-.nav-links a {
+nav a {
   text-decoration: none;
-  color: var(--text-color);
+  color: white;
+  font-weight: 500;
 }
 
+.light-mode nav {
+  background-color: #fff;
+}
+
+nav a:hover {
+  color: #00bfff;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.light-mode #theme-toggle {
+  color: #222;
+}
+
+/* SECTIONS */
 section {
-  padding: 2rem;
+  padding: 100px 10%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home {
+  text-align: center;
 }
 
 .profile-pic {
-  width: 150px;
+  max-width: 200px;
   border-radius: 50%;
-  margin-top: 1rem;
+  margin-top: 20px;
 }
 
 .skill-list {
   display: flex;
-  gap: 1rem;
-  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-#theme-toggle {
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+.skill-list li {
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+}
+
+.light-mode .skill-list li {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* FOOTER/CONTACT */
+#contact {
+  background-color: #222;
+}
+
+.light-mode #contact {
+  background-color: #eee;
 }

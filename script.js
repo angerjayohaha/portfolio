@@ -1,12 +1,11 @@
-// Typing animation
-const text = ["a BSIT Student", "a Future Web Developer", "Ejay 👋"];
-let index = 0;
-let charIndex = 0;
+// Typing effect
+const phrases = ["a BSIT Student", "a Web Developer", "learning everyday"];
 const typingText = document.querySelector(".typing-text");
+let index = 0, charIndex = 0;
 
 function type() {
-  if (charIndex < text[index].length) {
-    typingText.textContent += text[index].charAt(charIndex);
+  if (charIndex < phrases[index].length) {
+    typingText.textContent += phrases[index].charAt(charIndex);
     charIndex++;
     setTimeout(type, 100);
   } else {
@@ -16,22 +15,21 @@ function type() {
 
 function erase() {
   if (charIndex > 0) {
-    typingText.textContent = text[index].substring(0, charIndex - 1);
+    typingText.textContent = phrases[index].substring(0, charIndex - 1);
     charIndex--;
     setTimeout(erase, 50);
   } else {
-    index = (index + 1) % text.length;
-    setTimeout(type, 500);
+    index = (index + 1) % phrases.length;
+    setTimeout(type, 300);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (text.length) type();
+  if (phrases.length) type();
 });
 
-// Theme toggle
-const themeBtn = document.getElementById("theme-toggle");
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  themeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+// Dark/Light Mode Toggle
+const toggle = document.getElementById("theme-toggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
 });
