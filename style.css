@@ -19,21 +19,28 @@ body {
   color: #222;
 }
 
-/* NAVIGATION */
+/* Para di matabunan ng navbar ang content */
+body {
+  padding-top: 80px;
+}
+
+/* NAVIGATION - FIXED + LIGHT MODE */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 10%;
   background-color: #1f1f1f;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav .logo {
   font-size: 24px;
   font-weight: bold;
+  color: white;
 }
 
 nav ul {
@@ -48,10 +55,6 @@ nav a {
   font-weight: 500;
 }
 
-.light-mode nav {
-  background-color: #fff;
-}
-
 nav a:hover {
   color: #00bfff;
 }
@@ -64,9 +67,23 @@ nav a:hover {
   color: white;
 }
 
+/* When naka-light mode */
+.light-mode nav {
+  background-color: #fff;
+}
+
+.light-mode nav a {
+  color: #222;
+}
+
+.light-mode .logo {
+  color: #222;
+}
+
 .light-mode #theme-toggle {
   color: #222;
 }
+
 
 /* SECTIONS */
 section {
