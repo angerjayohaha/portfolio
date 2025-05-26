@@ -48,15 +48,12 @@ const appearOnScroll = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);  // stop observing after first show
+        entry.target.classList.add('show'); // trigger animation
+        observer.unobserve(entry.target);   // stop after 1 time
       }
     });
   },
   { threshold: 0.1 }
 );
 
-
-faders.forEach(fade => {
-  appearOnScroll.observe(fade);
-});
+faders.forEach(el => appearOnScroll.observe(el));
