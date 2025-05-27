@@ -316,3 +316,27 @@ input:checked + .slider:before {
     margin-top: 30px;
   }
 }
+
+/* Blue glow on hover for navbar links */
+nav ul li a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 6px #00bfff;
+}
+
+/* Add glow effect on focus too (accessibility) */
+nav ul li a:focus {
+  color: #00bfff;
+  text-shadow: 0 0 6px #00bfff;
+}
+
+/* Smooth transition for color and shadow changes */
+nav ul li a {
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Improve readability of 'Coming Soon' in light mode */
+#projects .coming-soon p {
+  color: #1a1a1a;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.4);
+}
