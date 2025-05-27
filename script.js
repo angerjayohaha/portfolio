@@ -1,38 +1,45 @@
-const roles = ["Cybersecurity Enthusiast", "Aspiring Game Developer", "BSIT Student"];
-let currentIndex = 0;
-let currentChar = 0;
-let typingSpeed = 100;
-let deletingSpeed = 50;
+// Dark mode toggle
+document.getElementById('theme-toggle').addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+// Typing effect with multiple phrases cycling
+const typingEl = document.getElementById('typing');
+const phrases = [
+  "BSIT Student",
+  "Learning Everyday",
+  "Soon to be Game Developer",
+  "Soon to be Cybersecurity Specialist"
+];
+const typingSpeed = 100;
+const erasingSpeed = 50;
+const pauseBetween = 1500;
+
+let phraseIndex = 0;
+let charIndex = 0;
 let isDeleting = false;
 
-const typingElement = document.getElementById("typing");
-
-function type() {
-  const currentRole = roles[currentIndex];
+function typeLoop() {
+  const currentPhrase = phrases[phraseIndex];
   if (!isDeleting) {
-    typingElement.textContent = currentRole.slice(0, currentChar + 1);
-    currentChar++;
-    if (currentChar === currentRole.length) {
+    typingEl.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+    if (charIndex === currentPhrase.length) {
       isDeleting = true;
-      setTimeout(type, 1500);
+      setTimeout(typeLoop, pauseBetween);
       return;
     }
   } else {
-    typingElement.textContent = currentRole.slice(0, currentChar - 1);
-    currentChar--;
-    if (currentChar === 0) {
+    typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+    if (charIndex === 0) {
       isDeleting = false;
-      currentIndex = (currentIndex + 1) % roles.length;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
     }
   }
-  setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+  setTimeout(typeLoop, isDeleting ? erasingSpeed : typingSpeed);
 }
 
-type();
-
-/* DARK MODE TOGGLE */
-const themeToggle = document.getElementById("theme-toggle");
-
-themeToggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode", themeToggle.checked);
+document.addEventListener("DOMContentLoaded", () => {
+  typeLoop();
 });
