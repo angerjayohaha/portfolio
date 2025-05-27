@@ -5,14 +5,11 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* Base */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: #fff;
   color: #111;
@@ -103,13 +100,14 @@ body.dark-mode nav ul li a {
   margin-bottom: 60px;
 }
 
-/* Home Image ayusin size at bilog */
+/* Fix spacing between About Me paragraph and My Skills heading */
+#about .content p {
+  margin-bottom: 40px; /* added more bottom margin */
+}
+
 .home-img img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  max-width: 230px;
+  height: auto;
 }
 
 /* Skills list inside About */
@@ -141,29 +139,39 @@ body.dark-mode nav ul li a {
 }
 
 /* Projects Section */
-#projects p {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  font-style: italic;
+.projects-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-#project-upload-form label {
+.project-card {
+  background-color: #00bfff33; /* light blue transparent */
+  border: 2px dashed #00bfff;
+  width: 250px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
   font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
+  color: #0077b6;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
-#project-upload-form input[type="file"] {
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.project-card:hover {
+  background-color: #00bfff55;
+  border-color: #0096c7;
+  cursor: pointer;
 }
 
-/* Disabled input style */
-#project-upload-form input[disabled] {
-  background-color: #999;
-  cursor: not-allowed;
+.project-card.coming-soon {
+  color: #999;
+  border-style: dashed;
+  font-style: italic;
 }
 
 /* Toggle Switch */
@@ -248,6 +256,7 @@ input:checked + .slider:before {
   vertical-align: bottom;
 }
 
+/* Blink animation for cursor */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -258,6 +267,14 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.home-img img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
 }
 
 /* Responsive for mobile */
@@ -289,7 +306,8 @@ input:checked + .slider:before {
     height: 160px;
   }
 
-  #about .content h2 {
-    font-size: 1.8rem;
+  #about .content h3 {
+    font-size: 1.6rem;
+    margin-top: 30px;
   }
 }
