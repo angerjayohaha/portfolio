@@ -96,6 +96,15 @@ body.dark-mode nav ul li a {
   color: white;
 }
 
+#about .content {
+  margin-bottom: 60px;
+}
+
+.home-img img {
+  max-width: 230px;
+  height: auto;
+}
+
 /* Skills list inside About */
 .skills-list {
   list-style: none;
