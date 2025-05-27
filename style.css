@@ -293,3 +293,59 @@ input:checked + .slider:before {
     height: 160px;
   }
 }
+
+/* Ayusin ang pagitan ng About Me at My Skills */
+#about .content h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Para di dikit masyado ang About paragraph sa My Skills */
+#about .content p {
+  margin-bottom: 30px;
+}
+
+/* Ayusin skills list layout */
+.skills-list {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Home Image ayusin size at bilog */
+.home-img img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+/* Responsive adjustments para sa mobile */
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px;
+    gap: 30px;
+  }
+
+  .home-text {
+    padding-right: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  .home-img img {
+    width: 160px;
+    height: 160px;
+  }
+
+  #about .content h3 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+  }
+}
