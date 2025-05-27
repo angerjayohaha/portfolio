@@ -106,6 +106,11 @@ body.dark-mode nav ul li a {
 }
 
 /* Skills list inside About */
+.skills-title {
+  margin-top: 30px;
+  font-size: 1.8rem;
+}
+
 .skills-list {
   list-style: none;
   display: flex;
@@ -263,13 +268,15 @@ input:checked + .slider:before {
 @media (max-width: 768px) {
   .home-layout {
     flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: 100px 20px 40px;
+    gap: 30px;
   }
 
   .home-text {
     padding-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 1.1rem;
   }
 
@@ -282,7 +289,7 @@ input:checked + .slider:before {
   }
 
   .home-img img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 }
