@@ -1,30 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl-PH">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ejay | Home</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Portfolio ni Ejay</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">Ejay</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+      </label>
     </nav>
   </header>
 
-  <section class="home fade-in">
-    <h1>Hello, I'm Ejay</h1>
-    <h2><span class="typing-text"></span></h2>
-    <img src="assets/ejay.jpeg" alt="Ejay's Photo" class="profile-pic" />
+<section id="home" class="section home-layout">
+  <div class="home-text">
+    <h1>Hi, I'm Ejay</h1>
+    <p>BSIT Student | Learning Everyday</p>
+  </div>
+  <div class="home-img">
+    <img src="ejay.jpeg" alt="Ejay's Photo">
+  </div>
+</section>
+
+
+  <section id="about" class="section">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>
+        I'm a BSIT student who loves technology and how it works. I want to become a cybersecurity expert and a game developer. I like cybersecurity because I want to protect systems and keep people’s data safe. I also enjoy making games that are fun and creative. Game development helps me use my ideas and solve problems. Even though I'm still learning, I always try to get better and learn new things. One day, I hope to make safe systems and games that people will love.
+      </p>
+    </div>
   </section>
 
-  <script src="js/script.js"></script>
+  <section id="skills" class="section">
+    <div class="content">
+      <h2>My Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <p>Email: ejaymarqueses3@gmail.com</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
