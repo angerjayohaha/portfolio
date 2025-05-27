@@ -67,3 +67,48 @@ section {
   color: #00bfff;
   box-shadow: 0 0 8px #00bfff;
 }
+
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: inherit;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Light mode overrides */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+body.light-mode nav {
+  background-color: #fff;
+}
+
+body.light-mode .nav-links li a {
+  color: #222;
+}
+
+body.light-mode .skill-list li.glow {
+  background-color: #fff;
+  color: #0077ff;
+  box-shadow: 0 0 8px #0077ff;
+}
+
+/* Scroll fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
