@@ -3,41 +3,43 @@ document.getElementById('theme-toggle').addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
 });
 
-// Typing effect for dynamic roles
+// Typing effect with multiple phrases cycling
+const typingEl = document.getElementById('typing');
 const phrases = [
-  "Soon-to-be Game Developer",
-  "Cybersecurity Specialist"
+  "Web Developer",
+  "Learning Everyday",
+  "Soon to be Game Developer",
+  "Soon to be Cybersecurity Specialist"
 ];
+const typingSpeed = 100;
+const erasingSpeed = 50;
+const pauseBetween = 1500;
+
 let phraseIndex = 0;
 let charIndex = 0;
-let typingSpeed = 100;
-let erasingSpeed = 50;
-let delayBetweenPhrases = 2000;
+let isDeleting = false;
 
-const typingEl = document.getElementById("typing");
-
-function type() {
-  if (charIndex < phrases[phraseIndex].length) {
-    typingEl.textContent += phrases[phraseIndex].charAt(charIndex);
+function typeLoop() {
+  const currentPhrase = phrases[phraseIndex];
+  if (!isDeleting) {
+    typingEl.textContent = currentPhrase.substring(0, charIndex + 1);
     charIndex++;
-    setTimeout(type, typingSpeed);
+    if (charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, pauseBetween);
+      return;
+    }
   } else {
-    setTimeout(erase, delayBetweenPhrases);
-  }
-}
-
-function erase() {
-  if (charIndex > 0) {
-    typingEl.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+    typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
     charIndex--;
-    setTimeout(erase, erasingSpeed);
-  } else {
-    phraseIndex++;
-    if (phraseIndex >= phrases.length) phraseIndex = 0;
-    setTimeout(type, typingSpeed + 500);
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
   }
+  setTimeout(typeLoop, isDeleting ? erasingSpeed : typingSpeed);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (phrases.length) setTimeout(type, delayBetweenPhrases);
+  typeLoop();
 });
