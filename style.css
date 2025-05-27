@@ -113,7 +113,7 @@ body.dark-mode nav ul li a {
 #about .content h3 {
   margin-top: 40px;
   margin-bottom: 20px;
-  font-size: 1.5rem; /* Match h2 smaller, but same level visually */
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -154,7 +154,7 @@ body.dark-mode nav ul li a {
 }
 
 body.dark-mode #projects p {
-  color: #bbb; /* lighter text on dark mode for "Coming Soon" */
+  color: #bbb;
 }
 
 #project-upload-form label {
@@ -170,7 +170,6 @@ body.dark-mode #projects p {
   border: 1px solid #ccc;
 }
 
-/* Disabled input style */
 #project-upload-form input[disabled] {
   background-color: #999;
   cursor: not-allowed;
@@ -257,10 +256,9 @@ input:checked + .slider:before {
   border-radius: 2px;
   vertical-align: bottom;
   animation: blink 1s infinite;
-  box-shadow: 0 0 8px #00bfff; /* subtle blue glow */
+  box-shadow: 0 0 8px #00bfff;
 }
 
-/* Blink animation for cursor */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -306,11 +304,6 @@ input:checked + .slider:before {
     font-size: 1.3rem;
   }
 
-  .home-img img {
-    width: 220px;
-    height: 220px;
-  }
-
   #about .content h3 {
     font-size: 1.5rem;
     margin-top: 30px;
@@ -329,7 +322,6 @@ nav ul li a:focus {
   text-shadow: 0 0 6px #00bfff;
 }
 
-/* Smooth transition for color and shadow changes */
 nav ul li a {
   transition: color 0.3s, text-shadow 0.3s;
 }
@@ -345,39 +337,68 @@ nav ul li a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .project-card {
-  background-color: #fff;
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #007acc;
+  color: white;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00bfff;
+  transition: transform 0.3s;
+  cursor: default;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+  transform: scale(1.05);
 }
 
+/* Dark mode for project cards */
 body.dark-mode .project-card {
-  background-color: #2a2a2a;
-  color: #eee;
+  background-color: #005a9e;
+  box-shadow: 0 0 20px #0099ff;
 }
 
+body.dark-mode #projects .coming-soon p {
+  color: #cce6ff;
+}
+
+/* SOCIAL ICONS fixed and improved */
 .social-icons {
   margin-top: 20px;
   display: flex;
-  gap: 15px;
+  gap: 25px;
   justify-content: center;
+  align-items: center; /* vertical center */
+}
+
+.social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00bfff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px #00bfff;
 }
 
 .social-icons a img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   filter: drop-shadow(0 0 5px #00bfff);
   transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #008fcc;
 }
 
 .social-icons a:hover img {
