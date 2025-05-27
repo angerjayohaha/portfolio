@@ -5,15 +5,11 @@
   box-sizing: border-box;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Base */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: #fff;
   color: #111;
@@ -51,26 +47,21 @@ nav ul li a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
+/* Nav link hover effect (light mode) */
 nav ul li a:hover {
   color: #00bfff;
+  text-decoration: underline;
+  text-shadow: 0 0 5px #00bfff;
 }
 
-/* Sections background */
-#home {
-  background-color: #f4f4f4;
-  padding-top: 70px;
-}
-#about {
-  background-color: #e2e2e2;
-}
-#projects {
-  background-color: #d0d0d0;
-}
-#contact {
-  background-color: #b8b8b8;
+/* Active nav link style */
+nav ul li a.active {
+  color: #00bfff;
+  text-decoration: underline;
+  text-shadow: 0 0 5px #00bfff;
 }
 
 /* Dark Mode */
@@ -100,33 +91,131 @@ body.dark-mode nav ul li a {
   color: white;
 }
 
-/* Highlight active nav link */
-nav ul li a.active {
+/* Nav link hover effect (dark mode) */
+body.dark-mode nav ul li a:hover {
   color: #00bfff;
   text-decoration: underline;
+  text-shadow: 0 0 8px #00bfff;
 }
 
-/* Cursor visibility for dark mode */
+/* Active nav link style (dark mode) */
+body.dark-mode nav ul li a.active {
+  color: #00bfff;
+  text-decoration: underline;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+/* Cursor */
+.cursor {
+  display: inline-block;
+  background-color: #00bfff;
+  width: 3px;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+  border-radius: 2px;
+  vertical-align: bottom;
+  transition: background-color 0.3s ease;
+}
+
+/* Cursor color for dark mode */
 body.dark-mode .cursor {
   background-color: #fff;
 }
 
-
-#about .content {
-  margin-bottom: 60px;
+/* Blink animation for cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
+/* Sections background */
+#home {
+  background-color: #f4f4f4;
+  padding-top: 70px;
+}
+#about {
+  background-color: #e2e2e2;
+}
+#projects {
+  background-color: #d0d0d0;
+}
+#contact {
+  background-color: #b8b8b8;
+}
+
+/* Home section layout */
+.home-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  padding: 70px 10%;
+  align-items: center;
+}
+
+.home-text {
+  flex: 1;
+  padding-right: 30px;
+  font-size: 1.3rem;
+}
+
+.home-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.home-text p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Home image bigger with smooth transition */
 .home-img img {
-  max-width: 230px;
-  height: auto;
+  width: 300px;
+  height: 300px;
+  max-width: 90vw;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px;
+    gap: 30px;
+  }
+
+  .home-text {
+    padding-right: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+  }
+
+  .home-text p {
+    font-size: 1.3rem;
+  }
+
+  .home-img img {
+    width: 200px;
+    height: 200px;
+  }
+
+  #about .content h3 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+  }
 }
 
 /* Skills list inside About */
-.skills-title {
-  margin-top: 30px;
-  font-size: 1.8rem;
-}
-
 .skills-list {
   list-style: none;
   display: flex;
@@ -174,6 +263,7 @@ body.dark-mode .cursor {
   border: 1px solid #ccc;
 }
 
+/* Disabled input style */
 #project-upload-form input[disabled] {
   background-color: #999;
   cursor: not-allowed;
@@ -225,100 +315,6 @@ input:checked + .slider:before {
   transform: translateX(24px);
 }
 
-/* Home section layout */
-.home-layout {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: left;
-  padding: 70px 10%;
-  align-items: center;
-}
-
-.home-text {
-  flex: 1;
-  padding-right: 30px;
-  font-size: 1.3rem;
-}
-
-.home-text h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.home-text p {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.cursor {
-  display: inline-block;
-  background-color: #00bfff;
-  width: 3px;
-  margin-left: 5px;
-  animation: blink 1s infinite;
-  border-radius: 2px;
-  vertical-align: bottom;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.home-img {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-img img {
-  width: 300px;
-  height: 300px;
-  max-width: 90vw;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-  transition: all 0.3s ease-in-out;
-}
-
-
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  .home-layout {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 40px;
-    gap: 30px;
-  }
-
-  .home-text {
-    padding-right: 0;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-
-  .home-text h1 {
-    font-size: 2rem;
-  }
-
-  .home-text p {
-    font-size: 1.3rem;
-  }
-
-  .home-img img {
-    width: 200px;
-    height: 200px;
-  }
-
-  #about .content h3 {
-    font-size: 1.6rem;
-    margin-top: 30px;
-  }
-}
-
 /* Ayusin ang pagitan ng About Me at My Skills */
 #about .content h3 {
   margin-top: 40px;
@@ -327,6 +323,7 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+/* Para di dikit masyado ang About paragraph sa My Skills */
 #about .content p {
   margin-bottom: 30px;
 }
