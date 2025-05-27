@@ -156,6 +156,11 @@ input:checked + .slider:before {
   padding-right: 30px;
 }
 
+.home-text p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
 .home-img {
   flex: 1;
   display: flex;
