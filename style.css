@@ -471,3 +471,34 @@ body.dark-mode .contact-form textarea {
   background-color: #008fcc;
   transform: scale(1.05);
 }
+
+.contact-info {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.contact-info a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+body.dark-mode .contact-info {
+  color: white;
+}
+
+body.dark-mode .contact-info a {
+  color: #66d9ff;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  font-size: 0.9rem;
+}
+
+body.dark-mode footer {
+  background-color: #222;
+}
