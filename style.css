@@ -405,3 +405,53 @@ body.dark-mode #projects .coming-soon p {
   transform: scale(1.2);
   filter: drop-shadow(0 0 10px #00bfff);
 }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #00bfff;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #111;
+  transition: 0.3s;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #222;
+  color: white;
+  border-color: #0099ff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #008fcc;
+  box-shadow: 0 0 8px #00bfff;
+}
+
+.contact-form button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #008fcc;
+  transform: scale(1.05);
+}
