@@ -283,8 +283,8 @@ input:checked + .slider:before {
 }
 
 .home-img img {
-  width: 280px;
-  height: 280px;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
@@ -479,8 +479,9 @@ body.dark-mode .contact-form textarea {
 }
 
 .contact-info a {
-  color: #00bfff;
+  color: #005a9e;
   text-decoration: none;
+  font-weight: bold;
 }
 
 body.dark-mode .contact-info {
@@ -501,4 +502,20 @@ footer {
 
 body.dark-mode footer {
   background-color: #222;
+}
+
+.theme-toggle-wrapper {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+body.dark-mode .theme-toggle-wrapper {
+  color: #66d9ff;
 }
