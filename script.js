@@ -1,7 +1,28 @@
 // Dark mode toggle
-document.getElementById('theme-toggle').addEventListener('change', () => {
+const toggle = document.getElementById('theme-toggle');
+const icon = document.querySelector('.toggle-icon');
+
+// Function to update the icon depending on mode
+function updateToggleIcon() {
+  if (document.body.classList.contains('dark-mode')) {
+    icon.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/869/869869.png')"; // ☀️ Sun icon (Light mode)
+  } else {
+    icon.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/1687/1687088.png')"; // 🌙 Moon icon (Dark mode)
+  }
+}
+
+// Listen to checkbox toggle
+toggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
+  updateToggleIcon();
 });
+
+// Initialize icon on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateToggleIcon();
+  typeLoop(); // keep your typing loop working
+});
+
 
 // Typing effect with multiple phrases cycling
 const typingEl = document.getElementById('typing');
