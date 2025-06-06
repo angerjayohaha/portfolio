@@ -33,9 +33,9 @@ const phrases = [
   "Soon to be Game Developer",
   "Soon to be Cybersecurity Specialist"
 ];
-const typingSpeed = 100;
-const erasingSpeed = 50;
-const pauseBetween = 1500;
+const typingSpeed = 120;
+const erasingSpeed = 80;
+const pauseBetween = 3000;
 
 let phraseIndex = 0;
 let charIndex = 0;
