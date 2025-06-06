@@ -629,3 +629,20 @@ body.dark-mode .theme-toggle-wrapper {
   right: auto;
   transform: none;
 }
+
+.logo-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
