@@ -646,3 +646,16 @@ body.dark-mode .theme-toggle-wrapper {
   display: flex;
   align-items: center;
 }
+
+.navbar .nav-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  margin-right: 20px;
+}
