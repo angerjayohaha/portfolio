@@ -242,10 +242,11 @@ input:checked + .slider:before {
 .toggle-icon {
   width: 18px;
   height: 18px;
-  background-color: #fff;
+  background-color: white;
   border-radius: 50%;
-  transition: transform 0.4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png'); /* moon icon */
+  position: absolute;
+  left: 4px;
+  transition: all 0.3s ease;
   background-size: cover;
   background-position: center;
 }

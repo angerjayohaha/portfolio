@@ -5,11 +5,12 @@ const icon = document.querySelector('.toggle-icon');
 // Function to update the icon depending on mode
 function updateToggleIcon() {
   if (document.body.classList.contains('dark-mode')) {
-    icon.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/869/869869.png')"; // ☀️ Sun icon (Light mode)
+    icon.style.backgroundImage = "url('icons/sun.svg')"; // 🌞 for light mode
   } else {
-    icon.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/1687/1687088.png')"; // 🌙 Moon icon (Dark mode)
+    icon.style.backgroundImage = "url('icons/moon.svg')"; // 🌙 for dark mode
   }
 }
+
 
 // Listen to checkbox toggle
 toggle.addEventListener('change', () => {
