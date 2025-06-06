@@ -585,3 +585,47 @@ body.dark-mode .theme-toggle-wrapper {
   transform: translateX(24px);
   background-color: #00bfff;
 }
+
+.navbar {
+  background-color: #333;
+  padding: 10px 5%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Make sure toggle position resets */
+.custom-toggle {
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+}
