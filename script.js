@@ -5,9 +5,9 @@ const icon = document.querySelector('.toggle-icon');
 // Function to update the icon depending on mode
 function updateToggleIcon() {
   if (document.body.classList.contains('dark-mode')) {
-    icon.style.backgroundImage = "url('icons/sun.svg')"; // 🌞 for light mode
+    icon.style.backgroundImage = "url('icons/moon.svg')"; // 🌞 for light mode
   } else {
-    icon.style.backgroundImage = "url('icons/moon.svg')"; // 🌙 for dark mode
+    icon.style.backgroundImage = "url('icons/sun.svg')"; // 🌙 for dark mode
   }
 }
 
