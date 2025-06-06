@@ -221,6 +221,44 @@ input:checked + .slider:before {
   transform: translateX(24px);
 }
 
+/* === Custom Toggle Switch Inspired by Image === */
+.custom-toggle {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00bfff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.4s;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png'); /* moon icon */
+  background-size: cover;
+  background-position: center;
+}
+
+#theme-toggle:checked + .custom-toggle {
+  background-color: #00bfff;
+  box-shadow: 0 0 12px #00bfff;
+}
+
+#theme-toggle:checked + .custom-toggle .toggle-icon {
+  transform: translateX(24px);
+}
+
 /* Home section layout */
 .home-layout {
   display: flex;
@@ -518,4 +556,31 @@ body.dark-mode footer {
 
 body.dark-mode .theme-toggle-wrapper {
   color: #66d9ff;
+}
+
+.custom-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+}
+
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:checked + .custom-toggle .toggle-icon {
+  transform: translateX(24px);
+  background-color: #00bfff;
 }
