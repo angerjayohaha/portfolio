@@ -15,9 +15,15 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
-  background-color: #fff;
+  background:
+    radial-gradient(circle at 25% 20%, #00bfff33, transparent 60%),
+    radial-gradient(circle at 75% 80%, #008fcc22, transparent 60%),
+    #fff;
+  background-attachment: fixed;
+  background-size: cover;
   color: #111;
 }
+
 
 /* =============================
    SECTIONS
@@ -179,7 +185,12 @@ body.dark-mode .theme-toggle-wrapper {
    DARK MODE
 ============================= */
 body.dark-mode {
-  background-color: #121212;
+  background:
+    radial-gradient(circle at 25% 20%, #00bfff11, transparent 60%),
+    radial-gradient(circle at 75% 80%, #008fcc22, transparent 60%),
+    #121212;
+  background-attachment: fixed;
+  background-size: cover;
   color: white;
 }
 
