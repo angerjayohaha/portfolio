@@ -1,11 +1,12 @@
-/* Reset */
+/* =============================
+   RESET & BASE STYLES
+============================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base */
 html {
   scroll-behavior: smooth;
 }
@@ -18,6 +19,9 @@ body {
   color: #111;
 }
 
+/* =============================
+   SECTIONS
+============================= */
 .section {
   min-height: 100vh;
   display: flex;
@@ -27,89 +31,210 @@ body {
   text-align: center;
 }
 
-nav {
+/* Section Backgrounds */
+#home { background-color: #f4f4f4; padding-top: 70px; }
+#about { background-color: #e2e2e2; }
+#projects { background-color: #d0d0d0; }
+#contact { background-color: #b8b8b8; }
+
+/* =============================
+   NAVIGATION
+============================= */
+.navbar {
+  background-color: #333;
+  padding: 10px 5%;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #333;
-  padding: 10px 0;
   z-index: 1000;
+}
+
+.navbar .nav-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
 }
 
-nav ul {
+/* Logo */
+.nav-logo {
   display: flex;
-  list-style: none;
-  gap: 25px;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: 20px;
 }
 
-nav ul li a {
+.logo-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
-nav ul li a:hover {
+.nav-links li a:hover,
+.nav-links li a:focus {
   color: #00bfff;
+  text-shadow: 0 0 6px #00bfff;
 }
 
-/* Sections background */
-#home {
-  background-color: #f4f4f4;
-  padding-top: 70px;
-}
-#about {
-  background-color: #e2e2e2;
-}
-#projects {
-  background-color: #d0d0d0;
-}
-#contact {
-  background-color: #b8b8b8;
+/* =============================
+   THEME TOGGLE
+============================= */
+.theme-toggle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 0 0 auto;
+  color: white;
+  font-weight: bold;
 }
 
-/* Dark Mode */
+body.dark-mode .theme-toggle-wrapper {
+  color: #66d9ff;
+}
+
+.custom-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 8px #00bfff;
+}
+
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+#theme-toggle:checked + .custom-toggle {
+  background-color: #00bfff;
+  box-shadow: 0 0 12px #00bfff;
+}
+
+#theme-toggle:checked + .custom-toggle .toggle-icon {
+  transform: translateX(24px);
+  background-color: #00bfff;
+}
+
+/* =============================
+   DARK MODE
+============================= */
 body.dark-mode {
   background-color: #121212;
   color: white;
 }
 
-body.dark-mode nav {
-  background-color: #222;
+body.dark-mode nav { background-color: #222; }
+body.dark-mode #home { background-color: #1e1e1e; }
+body.dark-mode #about { background-color: #2a2a2a; }
+body.dark-mode #projects { background-color: #1a1a1a; }
+body.dark-mode #contact { background-color: #0f0f0f; }
+body.dark-mode nav ul li a { color: white; }
+
+/* =============================
+   HOME SECTION
+============================= */
+.home-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  padding: 70px 10%;
+  align-items: center;
 }
 
-body.dark-mode #home {
-  background-color: #1e1e1e;
-}
-body.dark-mode #about {
-  background-color: #2a2a2a;
-}
-body.dark-mode #projects {
-  background-color: #1a1a1a;
-}
-body.dark-mode #contact {
-  background-color: #0f0f0f;
+.home-text {
+  flex: 1;
+  padding-right: 30px;
+  font-size: 1.3rem;
 }
 
-body.dark-mode nav ul li a {
-  color: white;
+.home-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
 }
 
-/* About content spacing fix */
+.home-text p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #00bfff;
+  width: 3px;
+  margin-left: 5px;
+  border-radius: 2px;
+  vertical-align: bottom;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 8px #00bfff;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.home-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-img img {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+}
+
+/* =============================
+   ABOUT SECTION
+============================= */
 #about .content {
   margin-bottom: 60px;
 }
 
-/* Fix spacing between About paragraph and My Skills heading */
 #about .content p {
   margin-bottom: 30px;
 }
 
-/* Make My Skills header same size as About Me header */
 #about .content h3 {
   margin-top: 40px;
   margin-bottom: 20px;
@@ -117,7 +242,6 @@ body.dark-mode nav ul li a {
   font-weight: bold;
 }
 
-/* Skills list inside About */
 .skills-list {
   list-style: none;
   display: flex;
@@ -145,7 +269,9 @@ body.dark-mode nav ul li a {
   transform: scale(1.1);
 }
 
-/* Projects Section */
+/* =============================
+   PROJECTS SECTION
+============================= */
 #projects p {
   font-size: 1.2rem;
   margin-bottom: 15px;
@@ -153,245 +279,28 @@ body.dark-mode nav ul li a {
   color: #333;
 }
 
-body.dark-mode #projects p {
-  color: #bbb;
-}
+body.dark-mode #projects p { color: #bbb; }
 
-#project-upload-form label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-#project-upload-form input[type="file"] {
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-#project-upload-form input[disabled] {
-  background-color: #999;
-  cursor: not-allowed;
-}
-
-/* Toggle Switch */
-.switch {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 3.5px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #00bfff;
-}
-
-input:checked + .slider:before {
-  transform: translateX(24px);
-}
-
-/* === Custom Toggle Switch Inspired by Image === */
-.custom-toggle {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  padding: 4px;
-  cursor: pointer;
-  box-shadow: 0 0 8px #00bfff;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.toggle-icon {
-  width: 18px;
-  height: 18px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  left: 4px;
-  transition: all 0.3s ease;
-  background-size: cover;
-  background-position: center;
-}
-
-#theme-toggle:checked + .custom-toggle {
-  background-color: #00bfff;
-  box-shadow: 0 0 12px #00bfff;
-}
-
-#theme-toggle:checked + .custom-toggle .toggle-icon {
-  transform: translateX(24px);
-}
-
-/* Home section layout */
-.home-layout {
-  display: flex;
-  flex-direction: row; /* Horizontal by default */
-  justify-content: space-between;
-  text-align: left;
-  padding: 70px 10%;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .home-layout {
-    flex-direction: column; /* Stack vertically on smaller screens */
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 40px;
-    gap: 30px;
-  }
-}
-
-.home-text {
-  flex: 1;
-  padding-right: 30px;
-  font-size: 1.3rem;
-}
-
-.home-text h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.home-text p {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-/* Cursor with blue glow */
-.cursor {
-  display: inline-block;
-  background-color: #00bfff;
-  width: 3px;
-  margin-left: 5px;
-  border-radius: 2px;
-  vertical-align: bottom;
-  animation: blink 1s infinite;
-  box-shadow: 0 0 8px #00bfff;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-/* Home image bigger but balanced */
-.home-img {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-img img {
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .home-layout {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 40px;
-    gap: 30px;
-  }
-
-  .home-text {
-    padding-right: 0;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-
-  .home-text h1 {
-    font-size: 2rem;
-  }
-
-  .home-text p {
-    font-size: 1.3rem;
-  }
-
-  #about .content h3 {
-    font-size: 1.5rem;
-    margin-top: 30px;
-  }
-}
-
-/* Blue glow on hover for navbar links */
-nav ul li a:hover {
-  color: #00bfff;
-  text-shadow: 0 0 6px #00bfff;
-}
-
-/* Add glow effect on focus too (accessibility) */
-nav ul li a:focus {
-  color: #00bfff;
-  text-shadow: 0 0 6px #00bfff;
-}
-
-nav ul li a {
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-/* Improve readability of 'Coming Soon' in light mode */
 #projects .coming-soon p {
   color: #1a1a1a;
   font-weight: bold;
   text-shadow: 0 0 5px rgba(0, 191, 255, 0.4);
 }
 
+body.dark-mode #projects .coming-soon p {
+  color: #cce6ff;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 20px;
 }
 
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+    grid-template-columns: 1fr;
   }
 }
 
@@ -414,51 +323,32 @@ nav ul li a {
   transform: scale(1.05);
 }
 
-/* Dark mode for project cards */
 body.dark-mode .project-card {
   background-color: #005a9e;
   box-shadow: 0 0 20px #0099ff;
 }
 
-body.dark-mode #projects .coming-soon p {
-  color: #cce6ff;
+/* =============================
+   CONTACT SECTION
+============================= */
+.contact-info {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  color: #111;
 }
 
-/* SOCIAL ICONS fixed and improved */
-.social-icons {
-  margin-top: 20px;
-  display: flex;
-  gap: 25px;
-  justify-content: center;
-  align-items: center; /* vertical center */
+.contact-info a {
+  color: #005a9e;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.social-icons a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #00bfff;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  transition: background-color 0.3s;
-  box-shadow: 0 0 8px #00bfff;
+body.dark-mode .contact-info {
+  color: white;
 }
 
-.social-icons a img {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 0 5px #00bfff);
-  transition: transform 0.3s, filter 0.3s;
-}
-
-.social-icons a:hover {
-  background-color: #008fcc;
-}
-
-.social-icons a:hover img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px #00bfff);
+body.dark-mode .contact-info a {
+  color: #66d9ff;
 }
 
 .contact-form {
@@ -511,26 +401,9 @@ body.dark-mode .contact-form textarea {
   transform: scale(1.05);
 }
 
-.contact-info {
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-  color: #111;
-}
-
-.contact-info a {
-  color: #005a9e;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-body.dark-mode .contact-info {
-  color: white;
-}
-
-body.dark-mode .contact-info a {
-  color: #66d9ff;
-}
-
+/* =============================
+   FOOTER
+============================= */
 footer {
   text-align: center;
   padding: 15px;
@@ -543,133 +416,88 @@ body.dark-mode footer {
   background-color: #222;
 }
 
-.theme-toggle-wrapper {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+/* =============================
+   SOCIAL ICONS
+============================= */
+.social-icons {
+  margin-top: 20px;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  font-weight: bold;
-}
-
-body.dark-mode .theme-toggle-wrapper {
-  color: #66d9ff;
-}
-
-.custom-toggle {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 25px;
-  background-color: #ccc;
-  border-radius: 20px;
-  position: relative;
-}
-
-.toggle-icon {
-  width: 18px;
-  height: 18px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  left: 4px;
-  transition: all 0.3s ease;
-}
-
-#theme-toggle:checked + .custom-toggle .toggle-icon {
-  transform: translateX(24px);
-  background-color: #00bfff;
-}
-
-.navbar {
-  background-color: #333;
-  padding: 10px 5%;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-
-.nav-container {
-  position: relative; /* ✅ Needed for centering nav-links absolutely */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-
-.nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  list-style: none;
   gap: 25px;
-}
-
-
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-.theme-toggle-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
-
-/* Make sure toggle position resets */
-.custom-toggle {
-  position: relative;
-  top: auto;
-  right: auto;
-  transform: none;
-}
-
-.logo-icon {
-  width: 35px;
-  height: 35px;
-  margin-right: 20px;
-}
-
-.nav-container {
+.social-icons a {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  background-color: #00bfff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px #00bfff;
 }
 
-.nav-logo {
-  flex: 1;
-  display: flex;
-  align-items: center;
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 5px #00bfff);
+  transition: transform 0.3s, filter 0.3s;
 }
 
-
-.navbar .nav-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.social-icons a:hover {
+  background-color: #008fcc;
 }
 
-.nav-logo {
-  margin-right: 20px;
+.social-icons a:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #00bfff);
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px;
+    gap: 30px;
+  }
+
+  .home-text {
+    padding-right: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+  }
+
+  .home-text p {
+    font-size: 1.3rem;
+  }
+
+  #about .content h3 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+
+  .theme-toggle-wrapper {
+    margin-top: 10px;
+  }
 }
