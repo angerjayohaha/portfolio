@@ -64,3 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
   updateToggleIcon();
   typeLoop();
 });
+
+// Scroll animation (Intersection Observer)
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Optional: remove this line if you want animation every time
+      }
+    });
+  }, {
+    threshold: 0.15 // 15% visible bago mag-trigger
+  });
+
+  animatedElements.forEach(el => observer.observe(el));
+});
