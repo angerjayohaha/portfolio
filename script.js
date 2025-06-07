@@ -1,31 +1,23 @@
-// Dark mode toggle
+// Dark mode toggle elements
 const toggle = document.getElementById('theme-toggle');
 const icon = document.querySelector('.toggle-icon');
 
-// Function to update the icon depending on mode
+// Update the toggle icon based on mode
 function updateToggleIcon() {
   if (document.body.classList.contains('dark-mode')) {
-    icon.style.backgroundImage = "url('icons/moon.svg')"; // 🌞 for light mode
+    icon.style.backgroundImage = "url('icons/moon.svg')"; // Moon icon for dark mode
   } else {
-    icon.style.backgroundImage = "url('icons/sun.svg')"; // 🌙 for dark mode
+    icon.style.backgroundImage = "url('icons/sun.svg')";  // Sun icon for light mode
   }
 }
 
-
-// Listen to checkbox toggle
+// Listen for toggle switch change
 toggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
   updateToggleIcon();
 });
 
-// Initialize icon on page load
-document.addEventListener("DOMContentLoaded", () => {
-  updateToggleIcon();
-  typeLoop(); // keep your typing loop working
-});
-
-
-// Typing effect with multiple phrases cycling
+// Typing effect elements and config
 const typingEl = document.getElementById('typing');
 const phrases = [
   "BSIT Student",
@@ -41,11 +33,14 @@ let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
+// Main typing loop function
 function typeLoop() {
   const currentPhrase = phrases[phraseIndex];
+
   if (!isDeleting) {
     typingEl.textContent = currentPhrase.substring(0, charIndex + 1);
     charIndex++;
+
     if (charIndex === currentPhrase.length) {
       isDeleting = true;
       setTimeout(typeLoop, pauseBetween);
@@ -54,14 +49,18 @@ function typeLoop() {
   } else {
     typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
     charIndex--;
+
     if (charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
     }
   }
+
   setTimeout(typeLoop, isDeleting ? erasingSpeed : typingSpeed);
 }
 
+// Initialize on page load
 document.addEventListener("DOMContentLoaded", () => {
+  updateToggleIcon();
   typeLoop();
 });
