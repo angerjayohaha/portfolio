@@ -24,6 +24,17 @@ body {
   color: #111;
 }
 
+/* Smooth theme transitions */
+body,
+body * {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
 
 /* =============================
    SECTIONS
@@ -166,7 +177,7 @@ body.dark-mode .theme-toggle-wrapper {
   border-radius: 50%;
   position: absolute;
   left: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3 ease;
   background-size: cover;
   background-position: center;
 }
@@ -177,7 +188,7 @@ body.dark-mode .theme-toggle-wrapper {
 }
 
 #theme-toggle:checked + .custom-toggle .toggle-icon {
-  transform: translateX(24px);
+  transform: translateX(24px) scale(1.1);
   background-color: #00bfff;
 }
 
