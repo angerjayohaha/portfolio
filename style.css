@@ -549,7 +549,7 @@ body.dark-mode footer {
 
 /* ======================================
    BACKGROUND DESIGN (Light & Dark Mode)
-====================================== */
+====================================== 
 
 .background-blur {
   position: fixed;
@@ -572,4 +572,4 @@ body.dark-mode .background-blur {
   background:
     radial-gradient(circle at 30% 20%, rgba(0, 191, 255, 0.08) 0%, transparent 60%),
     radial-gradient(circle at 80% 80%, rgba(0, 140, 200, 0.07) 0%, transparent 60%);
-}
+} */
