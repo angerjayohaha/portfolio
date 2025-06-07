@@ -52,12 +52,36 @@ body {
 .navbar .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
+}
+
+.nav-logo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-links {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  position: static;
+  transform: none;
+}
+
+.theme-toggle-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /* Logo */
@@ -75,14 +99,15 @@ body {
 }
 
 /* Navigation Links */
-.nav-links {
+
+/* .nav-links {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 25px;
   list-style: none;
-}
+} */
 
 .nav-links li a {
   color: white;
