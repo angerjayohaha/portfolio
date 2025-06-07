@@ -484,6 +484,30 @@ body.dark-mode footer {
    RESPONSIVE
 ============================= */
 @media (max-width: 768px) {
+  .nav-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    flex: 0 0 auto;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+  }
+
+  .theme-toggle-wrapper {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+  }
+
   .home-layout {
     flex-direction: column;
     align-items: center;
@@ -509,23 +533,5 @@ body.dark-mode footer {
   #about .content h3 {
     font-size: 1.5rem;
     margin-top: 30px;
-  }
-
-  .nav-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 0;
-  }
-
-  .theme-toggle-wrapper {
-    margin-top: 0;
-    flex: 0 0 auto;
   }
 }
