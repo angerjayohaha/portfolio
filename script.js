@@ -73,8 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Optional: remove this line if you want animation every time
+      } else {
+        entry.target.classList.remove('visible');
       }
+
     });
   }, {
     threshold: 0.15 // 15% visible bago mag-trigger
